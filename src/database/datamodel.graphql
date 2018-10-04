@@ -1,0 +1,24 @@
+type User {
+  id: ID! @unique
+  name: String!
+  lastname:String!
+  email:String! @unique
+  password:String!
+  status:Boolean @defaultValue(value:true)
+  paypal_id:String
+  avatar:String @default(value:"https://vignette.wikia.nocookie.net/bungostraydogs/images/1/1e/Profile-icon-9.png/revision/latest?cb=20171030104015")
+}
+ type Picture {
+    id: ID! @unique
+    title: String!
+    sinopsis:String!
+    likes:Rates!
+    poster:String
+    video_url:String!
+}
+ type Rating{
+  id: ID! @unique
+  user:User!
+  picture:Picture!
+  rate:Float!
+}

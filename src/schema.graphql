@@ -1,0 +1,11 @@
+type Query {
+    pictures:[Picture!]!
+}
+ type Mutation {
+    createPicture(title:String!,content:String!):Picture
+}
+ type Picture {
+    id:ID!,
+    title:String!,
+    content:String!
+}
