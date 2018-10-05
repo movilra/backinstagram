@@ -10,7 +10,7 @@ const queryUser = `{
     id,
     email,
     name,
-    lastname,
+    lastname,    
 }`
 
 Date.prototype.addDays = function(days) {
@@ -101,7 +101,7 @@ async function upgradeSuscription(parent,args,context,info){
 const queryRate = `{
     id,
     rate,
-    movie{
+    picture{
         title
     },
     user{
@@ -117,9 +117,9 @@ async function addRating(parent,args,context,info){
                 id:user_id
             }
         },
-        movie:{
+        picture:{
             connect:{
-                id:args.movie_id
+                id:args.picture_id
             }
         },
         rate:args.rate

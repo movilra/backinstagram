@@ -1,11 +1,26 @@
+#import User,Picture,Rating from './database/generated/prisma/prisma.graphql';
+#import Rates from './database/generated/prisma/prisma.graphql';
+
 type Query {
+    users:[User!]!
+    me:User!
     pictures:[Picture!]!
+    picture(id:ID!):Picture
 }
- type Mutation {
-    createPicture(title:String!,content:String!):Picture
+
+type Mutation {
+    signup(name: String!, email: String!, 
+    lastname: String!, password: String! ): AuthPayload
+    login(email: String!, password: String!): AuthPayload
+    createPicture(name:String!):Picture!
 }
- type Picture {
-    id:ID!,
-    title:String!,
-    content:String!
+
+type Subscription{
+    newPicture:PictureSubscriptionPayload
+}
+
+
+type AuthPayload{
+    token: String
+    user: User
 }

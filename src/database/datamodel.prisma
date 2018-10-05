@@ -4,7 +4,7 @@ type User {
   lastname:String!
   email:String! @unique
   password:String!
-  status:Boolean @defaultValue(value:true)
+  status:Boolean @default(value:true)
   paypal_id:String
   avatar:String @default(value:"https://vignette.wikia.nocookie.net/bungostraydogs/images/1/1e/Profile-icon-9.png/revision/latest?cb=20171030104015")
 }
@@ -12,7 +12,7 @@ type User {
     id: ID! @unique
     title: String!
     sinopsis:String!
-    likes:Rates!
+    likes:Float!
     poster:String
     video_url:String!
 }
